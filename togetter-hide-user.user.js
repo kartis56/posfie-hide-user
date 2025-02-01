@@ -2,8 +2,8 @@
 // @name        togetter-hide-user
 // @namespace   recyclebin5385
 // @description togetterの特定ユーザを見えなくする
-// @include     http://togetter.com/*
-// @include     https://togetter.com/*
+// @match     http://togetter.com/*
+// @match     https://togetter.com/*
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
 // @version     8
 // @grant       none
@@ -154,7 +154,7 @@
     function hideUsers() {
         var hiddenUserIds = getHiddenUserIds();
         $('.topics_box .icon_24').each(function() {
-            var id = urlToId($(this).attr('data-lazy-src') || $(this).attr('src'));
+            var id = urlToId($(this).attr('data-lazy-src') || $(this).attr('data-s') || $(this).attr('src'));
             var parentLi = $(this).parents('li').filter(':not(.dummy)');
             var dummyParentLi = $(this).parents('li').next('li.dummy');
 
@@ -185,7 +185,7 @@
 
     $(function() {
         $('.topics_box .icon_24').dblclick(function() {
-            var id = urlToId($(this).attr('data-lazy-src') || $(this).attr('src'));
+            var id = urlToId($(this).attr('data-lazy-src') || $(this).attr('data-s') || $(this).attr('src'));
             if (id == null || id == '') {
                 return;
             }
