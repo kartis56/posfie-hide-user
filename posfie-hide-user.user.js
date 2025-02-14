@@ -5,7 +5,7 @@
 // @match     http://posfie.com/*
 // @match     https://posfie.com/*
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
-// @version     8
+// @version     9
 // @grant       none
 // ==/UserScript==
 
@@ -173,7 +173,7 @@
                     dummyParentLi = parentLi.next('.dummy');
 
                     // 削除済のまとめに対してユーザのアイコンを出す場合は以下をアンコメントする
-                     dummyParentLi.append($(this).clone(true).unbind('dblclick'));
+                    //dummyParentLi.append($(this).clone(true).unbind('dblclick'));
                     dummyParentLi.attr('title', parentLi.find('h3').text());
                     dummyParentLi.append("[削除済]");
                     dummyParentLi.dblclick(function() {
